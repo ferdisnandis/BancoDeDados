@@ -25,3 +25,13 @@ SELECT * FROM atendimentos WHERE DataAtendimento BETWEEN '2020-08-01' AND '2020-
 SELECT * FROM atendimentos;
 SELECT * FROM veterinario;
 INSERT INTO atendimentos (Consulta, DataAtendimento, IdVeterinario, IdPets) VALUES ('Cirurgia','2020-01-09', 5, 2);
+
+--DQL - Data Query
+
+SELECT 
+	pets.Nome,
+	veterinario.IdVeterinario,
+	atendimentos.DataAtendimento
+FROM atendimentos
+	INNER JOIN pets ON atendimentos.IdPets = pets.IdPets
+	INNER JOIN veterinario ON atendimentos.IdVeterinario = veterinario.IdVeterinario;
